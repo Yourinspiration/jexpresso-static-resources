@@ -2,6 +2,23 @@
 
 A middleware compenent for JExpresso application to serve static resources like files and images.
 
+## Maven
+
+```xml
+<repository>
+  <id>nexus.yourinspiration.de</id>
+  <url>http://nexus.yourinspiration.de/nexus/content/repositories/releases/</url>
+</repository>
+```
+
+```xml
+<dependency>
+  <groupId>de.yourinspiration</groupId>
+  <artifactId>jexpresso-static-resources</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+
 ## Usage
 
 ```java
@@ -10,3 +27,6 @@ final JExpresso app = new JExpresso();
 // Set the second argument to false, if file caching should be disabled.
 app.use(new StaticResources("assets", true));
 ```
+
+
+

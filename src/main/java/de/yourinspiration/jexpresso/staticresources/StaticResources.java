@@ -180,13 +180,14 @@ public class StaticResources implements MiddlewareHandler {
 
             }
 
+            response.send(bytes);
+
             response.set(CONTENT_LENGTH, "" + bytes.length);
             setContentTypeHeader(response, resource);
             setDateAndCacheHeaders(response, System.currentTimeMillis());
-
-            response.send(bytes);
         }
 
+        next.cancel();
     }
 
     private boolean checkIfModified(final Request request, final long lastModified) {
@@ -290,6 +291,10 @@ public class StaticResources implements MiddlewareHandler {
      */
     private void setContentTypeHeader(final Response response, final String path) {
         MimetypesFileTypeMap mimeTypesMap = new MimetypesFileTypeMap();
+        mimeTypesMap.addMimeTypes("image/png png PNG");
+        mimeTypesMap.addMimeTypes("image/gif gif GIF");
+        mimeTypesMap.addMimeTypes("image/jpeg jpeg JPEG jpg JPG");
+        mimeTypesMap.addMimeTypes("image/tiff tiff TIFF");
         response.set(CONTENT_TYPE, mimeTypesMap.getContentType(path));
     }
 

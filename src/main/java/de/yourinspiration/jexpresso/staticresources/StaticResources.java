@@ -295,6 +295,20 @@ public class StaticResources implements MiddlewareHandler {
         mimeTypesMap.addMimeTypes("image/gif gif GIF");
         mimeTypesMap.addMimeTypes("image/jpeg jpeg JPEG jpg JPG");
         mimeTypesMap.addMimeTypes("image/tiff tiff TIFF");
+        mimeTypesMap.addMimeTypes("text/javascript js JS");
+        mimeTypesMap.addMimeTypes("application/json json JSON");
+        mimeTypesMap.addMimeTypes("text/css css CSS");
+
+        mimeTypesMap.addMimeTypes("application/ogg ogg OGG");
+        mimeTypesMap.addMimeTypes("application/pdf pdf PDF");
+        mimeTypesMap.addMimeTypes("application/postscript ps PS");
+        mimeTypesMap.addMimeTypes("application/xml xml XML");
+        mimeTypesMap.addMimeTypes("application/zip zip ZIP");
+        mimeTypesMap.addMimeTypes("application/gzip gzip GZIP");
+
+        mimeTypesMap.addMimeTypes("audio/mp4 mp4 MP4");
+        mimeTypesMap.addMimeTypes("audio/mpeg mpeg mp3");
+
         response.set(CONTENT_TYPE, mimeTypesMap.getContentType(path));
     }
 

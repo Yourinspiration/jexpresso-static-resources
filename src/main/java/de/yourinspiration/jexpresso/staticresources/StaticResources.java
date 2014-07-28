@@ -309,6 +309,8 @@ public class StaticResources implements MiddlewareHandler {
         mimeTypesMap.addMimeTypes("audio/mp4 mp4 MP4");
         mimeTypesMap.addMimeTypes("audio/mpeg mpeg mp3");
 
+        Logger.debug("Resolved Content-Type {0}", mimeTypesMap.getContentType(path));
+
         response.set(CONTENT_TYPE, mimeTypesMap.getContentType(path));
     }
 

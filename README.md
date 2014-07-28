@@ -19,7 +19,7 @@ A middleware compenent for JExpresso application to serve static resources like 
 <dependency>
   <groupId>de.yourinspiration</groupId>
   <artifactId>jexpresso-static-resources</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1-RELEASE</version>
 </dependency>
 ```
 

@@ -4,7 +4,7 @@
 
 	<groupId>de.yourinspiration</groupId>
 	<artifactId>jexpresso-static-resources</artifactId>
-	<version>0.0.2-RELEASE</version>
+	<version>1.0.0-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>jexpresso-static-resources</name>
@@ -72,7 +72,7 @@
 		<dependency>
 			<groupId>de.yourinspiration</groupId>
 			<artifactId>jexpresso</artifactId>
-			<version>0.0.1-RELEASE</version>
+			<version>1.0.0-RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>

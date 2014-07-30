@@ -15,11 +15,23 @@ A middleware compenent for JExpresso application to serve static resources like 
 </repository>
 ```
 
+Latest release:
+
 ```xml
 <dependency>
   <groupId>de.yourinspiration</groupId>
   <artifactId>jexpresso-static-resources</artifactId>
-  <version>0.0.1-RELEASE</version>
+  <version>1.0.0-RELEASE</version>
+</dependency>
+```
+
+Latest snapshot:
+
+```xml
+<dependency>
+  <groupId>de.yourinspiration</groupId>
+  <artifactId>jexpresso-static-resources</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
 </dependency>
 ```
 

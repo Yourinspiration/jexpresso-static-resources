@@ -210,7 +210,6 @@ public class StaticResources implements MiddlewareHandler {
     }
 
     private String sanitizeUri(String uri) {
-        // Decode the path.
         try {
             uri = URLDecoder.decode(uri, "UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -221,7 +220,6 @@ public class StaticResources implements MiddlewareHandler {
             return null;
         }
 
-        // TODO Check path seriously!
         if (uri.contains(File.separator + '.') || uri.contains('.' + File.separator) || uri.startsWith(".")
                 || uri.endsWith(".") || INSECURE_URI.matcher(uri).matches()) {
             return null;

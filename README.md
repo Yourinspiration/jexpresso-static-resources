@@ -4,24 +4,13 @@ A middleware compenent for JExpresso application to serve static resources like 
 
 ## Maven
 
-```xml
-<repository>
-  <id>yourinspiration.realeases</id>
-  <url>http://nexus.yourinspiration.de/nexus/content/repositories/releases/</url>
-</repository>
-<repository>
-  <id>yourinspiration.snapshots</id>
-  <url>http://nexus.yourinspiration.de/nexus/content/repositories/snapshots/</url>
-</repository>
-```
-
 Latest release:
 
 ```xml
 <dependency>
   <groupId>de.yourinspiration</groupId>
   <artifactId>jexpresso-static-resources</artifactId>
-  <version>1.0.0-RELEASE</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 

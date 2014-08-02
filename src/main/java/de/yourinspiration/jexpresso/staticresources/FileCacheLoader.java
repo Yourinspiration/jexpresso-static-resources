@@ -1,14 +1,11 @@
 package de.yourinspiration.jexpresso.staticresources;
 
-import java.io.InputStream;
 import java.net.URL;
 
 import org.apache.commons.io.IOUtils;
 import org.pmw.tinylog.Logger;
 
 import com.google.common.cache.CacheLoader;
-
-import de.yourinspiration.jexpresso.staticresources.resource.Resource;
 
 /**
  * Cache loader for static file resources.
@@ -41,18 +38,17 @@ public class FileCacheLoader extends CacheLoader<String, FileCacheEntry> {
             return new FileCacheEntry(true, null, resource, System.currentTimeMillis(), true);
         }
 
-        final InputStream fileInputStream = fileUrl.openStream();
-
         byte[] bytes;
 
         // Somehow there is a NPE when accessing a directory when compressed to
         // a JAR.
         try {
-            bytes = IOUtils.toByteArray(fileInputStream);
+            ;
+            bytes = IOUtils.toByteArray(fileResource.getInputStream());
         } catch (NullPointerException npe) {
             return new FileCacheEntry(false, null, resource, System.currentTimeMillis(), false);
         } finally {
-            fileInputStream.close();
+            fileResource.release();
         }
 
         // Cached files cannot be changed, so simulate a last modified timestamp

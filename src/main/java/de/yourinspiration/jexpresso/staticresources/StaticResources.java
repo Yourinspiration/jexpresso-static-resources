@@ -39,8 +39,13 @@ import de.yourinspiration.jexpresso.Request;
 import de.yourinspiration.jexpresso.Response;
 import de.yourinspiration.jexpresso.http.ContentType;
 import de.yourinspiration.jexpresso.http.HttpStatus;
-import de.yourinspiration.jexpresso.staticresources.resource.Resource;
 
+/**
+ * Middleware component to service static resources for JExpresso applications.
+ * 
+ * @author Marcel Härle
+ *
+ */
 public class StaticResources implements MiddlewareHandler {
 
     public static final String HTTP_DATE_FORMAT = "EEE, dd MMM yyyy HH:mm:ss zzz";
@@ -53,6 +58,14 @@ public class StaticResources implements MiddlewareHandler {
     private final LoadingCache<String, FileCacheEntry> fileCache = CacheBuilder.newBuilder().build(
             new FileCacheLoader());
 
+    /**
+     * Constructs a new object.
+     * 
+     * @param staticResources
+     *            the path to the folder containing the static resources
+     * @param useFileCache
+     *            whether using a file cache
+     */
     public StaticResources(final String staticResources, final boolean useFileCache) {
         this.staticResources = staticResources;
         this.useFileCache = useFileCache;

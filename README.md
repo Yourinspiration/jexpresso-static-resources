@@ -4,23 +4,13 @@ A middleware compenent for JExpresso application to serve static resources like 
 
 ## Maven
 
-Latest release:
+Latest stable release:
 
 ```xml
 <dependency>
   <groupId>de.yourinspiration</groupId>
   <artifactId>jexpresso-static-resources</artifactId>
-  <version>1.0.0</version>
-</dependency>
-```
-
-Latest snapshot:
-
-```xml
-<dependency>
-  <groupId>de.yourinspiration</groupId>
-  <artifactId>jexpresso-static-resources</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
@@ -32,6 +22,3 @@ final JExpresso app = new JExpresso();
 // Set the second argument to false, if file caching should be disabled.
 app.use(new StaticResources("assets", true));
 ```
-
-
-

@@ -7,7 +7,6 @@ import static io.netty.handler.codec.http.HttpHeaders.Names.DATE;
 import static io.netty.handler.codec.http.HttpHeaders.Names.EXPIRES;
 import static io.netty.handler.codec.http.HttpHeaders.Names.IF_MODIFIED_SINCE;
 import static io.netty.handler.codec.http.HttpHeaders.Names.LAST_MODIFIED;
-import io.netty.handler.codec.http.HttpMethod;
 
 import java.io.File;
 import java.io.IOException;
@@ -73,13 +72,7 @@ public class StaticResources implements MiddlewareHandler {
 
     @Override
     public void handle(final Request request, final Response response, final Next next) {
-        // Files can only by requested by a HTTP GET request.
-        if (!request.method().equals(HttpMethod.GET)) {
-            next.next();
-            return;
-        }
-
-        final String uri = request.path();
+        final String uri = getUri(request);
         String path = sanitizeUri(uri);
 
         // If the path is not valid/secure it is set to null.
@@ -201,6 +194,14 @@ public class StaticResources implements MiddlewareHandler {
         }
 
         next.cancel();
+    }
+
+    private String getUri(final Request request) {
+        if (request.path().contains("?")) {
+            return request.path().substring(0, request.path().indexOf("?"));
+        } else {
+            return request.path();
+        }
     }
 
     private boolean checkIfModified(final Request request, final long lastModified) {
